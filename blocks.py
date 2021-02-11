@@ -52,7 +52,7 @@ class Blockchain:
 				proof = genesis()
 			self.chain.append(proof)
 			self.chaindata[proof] = to_dict(genesis)
-			self.prevHash = proof
+			self.prevHash = genesis.genHash(genesis.nonce)
 			print('Blockchain is initialised')
 	
 	def submit(self, miner, proof):
